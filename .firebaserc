@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fencing-calculator": {
+      "hosting": {
+        "FencingCalculator-Web": [
+          "fencing-calculator"
+        ]
+      }
+    }
+  }
+}

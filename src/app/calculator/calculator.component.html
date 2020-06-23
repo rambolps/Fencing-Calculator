@@ -1,0 +1,76 @@
+<nb-card size="small">
+  <nb-card-body>
+    Please input all the important information (Inches)
+    <br>
+    <br>
+    <nb-select placeholder="Material" [(selected)]="material">
+      <nb-option value="W">Wood</nb-option>
+      <nb-option value="I">Iron</nb-option>
+      <nb-option value="CL">Chain Link</nb-option>
+    </nb-select>
+    <br>
+    <br>
+    <nb-select placeholder="Store" [(selected)]="store">
+      <nb-option value="HD">Home Depot</nb-option>
+      <nb-option value="L">Lowes</nb-option>
+    </nb-select>
+    <br>
+    <br>
+    <nb-select placeholder="Shape" [(selected)]="shape">
+      <nb-option value="C">Custom</nb-option>
+      <nb-option value="O">Oval</nb-option>
+      <nb-option value="R">Quadrilateral</nb-option>
+      <nb-option value="3">3 Sided</nb-option>
+    </nb-select>
+    <br>
+    <br>
+    <div *ngIf="shape=='C'">
+      <div class="next">
+        <input nbInput type="text" #side1in (keyup)="sideIn(side1in.value,'1')" nbInput placeholder="Length">
+      </div>
+      <br>
+    </div>
+    <div *ngIf="shape=='R'">
+      <div class="next">
+        <input nbInput type="text" #side1in (keyup)="sideIn(side1in.value,'1')" nbInput placeholder="Side 1">
+        <br>
+        <br>
+        <input nbInput type="text" #side2in (keyup)="sideIn(side2in.value,'2')" nbInput placeholder="Side 2">
+        <br>
+        <br>
+        <input nbInput type="text" #side3in (keyup)="sideIn(side3in.value,'3')" nbInput placeholder="Side 3">
+        <br>
+        <br>
+        <input nbInput type="text" #side4in (keyup)="sideIn(side4in.value,'4')" nbInput placeholder="Side 4">
+      </div>
+      <br>
+    </div>
+    <div *ngIf="shape=='3'">
+      <div class="next">
+        <input nbInput type="text" #side1in (keyup)="sideIn(side1in.value,'1')" nbInput placeholder="Side 1">
+        <br>
+        <br>
+        <input nbInput type="text" #side2in (keyup)="sideIn(side2in.value,'2')" nbInput placeholder="Side 2">
+        <br>
+        <br>
+        <input nbInput type="text" #side3in (keyup)="sideIn(side3in.value,'3')" nbInput placeholder="Side 3">
+      </div>
+      <br>
+    </div>
+    <div *ngIf="shape == 'O'">
+      <div class="next">
+        <input nbInput type="text" #Xrad (keyup)="ovalIn(Xrad.value,'X')" nbInput placeholder="X Radius">
+        <br>
+        <br>
+        <input nbInput type="text" #yRad (keyup)="ovalIn(yRad.value,'Y')" nbInput placeholder="Y Radius">
+        <br>
+        <br>
+        <input nbInput type="text" #per (keyup)="ovalIn(per.value,'p')" nbInput placeholder="Percentage of Oval">
+      </div>
+      <br>
+    </div>
+    <button nbButton hero status="primary" shape="rectangle" size="medium" (click)="calc()">Calculate</button>
+    <div>
+    </div>
+  </nb-card-body>
+</nb-card>
